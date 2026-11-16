@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Christmas Gift | Kang</title>
+<style>
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: Georgia, serif;
+  background: #f8f0e7;
+  color: #782b36;
+}
+main { padding: 30px; max-width: 420px; }
+h1 { font-size: 34px; }
+p { line-height: 1.6; }
+button {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 100px;
+  transition: transform .2s;
+}
+button:hover { transform: scale(1.08); }
+#surprise { display: none; }
+.amount { font-size: 48px; font-weight: bold; }
+</style>
+</head>
+<body>
+<main>
+  <div id="welcome">
+    <p>KANG ITALIA · CHRISTMAS 2026</p>
+    <h1>A little Christmas magic for you!</h1>
+    <p>Your special gift is waiting. Click to unwrap it!</p>
+    <button onclick="unwrap()" aria-label="Unwrap your gift">🎁</button>
+    <p>Merry Christmas ❤️</p>
+  </div>
+
+  <div id="surprise">
+    <p>YOUR CHRISTMAS SURPRISE</p>
+    <h1>You've won!</h1>
+    <div class="amount" id="prize"></div>
+    <p>A special gift, just for you!</p>
+    <p>Contact Kang to activate your bonus.</p>
+    <p>Merry Christmas ❤️</p>
+  </div>
+</main>
+
+<script>
+const gifts = {
+  "VIP001": "€10",
+  "VIP002": "€20",
+  "VIP003": "€30",
+  "VIP004": "€20",
+  "VIP005": "€10",
+  "VIP006": "€30",
+  "VIP007": "€20",
+  "VIP008": "€10",
+  "VIP009": "€30",
+  "VIP010": "€20"
+};
+
+const code = new URLSearchParams(location.search).get("code");
+
+function unwrap() {
+  if (!gifts[code]) {
+    alert("Sorry, this gift link is not valid.");
+    return;
+  }
+  document.getElementById("welcome").style.display = "none";
+  document.getElementById("surprise").style.display = "block";
+  document.getElementById("prize").textContent = gifts[code];
+}
+</script>
+</body>
+</html>
