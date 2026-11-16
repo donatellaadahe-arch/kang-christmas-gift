@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Your Christmas Gift | Kang</title>
+<title>Il tuo regalo di Natale | Kang</title>
 <style>
 body {
   margin: 0;
@@ -24,7 +24,7 @@ button {
   border: 0;
   background: transparent;
   cursor: pointer;
-  font-size: 100px;
+  font-size: 110px;
   transition: transform .2s;
 }
 button:hover { transform: scale(1.08); }
@@ -35,42 +35,43 @@ button:hover { transform: scale(1.08); }
 <body>
 <main>
   <div id="welcome">
-    <p>KANG ITALIA · CHRISTMAS 2026</p>
-    <h1>A little Christmas magic for you!</h1>
-    <p>Your special gift is waiting. Click to unwrap it!</p>
-    <button onclick="unwrap()" aria-label="Unwrap your gift">🎁</button>
-    <p>Merry Christmas ❤️</p>
+    <p>KANG ITALIA · NATALE 2026</p>
+    <h1>Un regalo speciale per te!</h1>
+    <p>Per ringraziarti di essere uno dei nostri clienti più preziosi, abbiamo preparato una sorpresa tutta per te.</p>
+    <button onclick="unwrap()" aria-label="Apri il tuo regalo">🎁</button>
+    <h2>Apri il tuo regalo!</h2>
+    <p>Clicca sul pacchetto e scopri la tua sorpresa ❤️</p>
   </div>
 
   <div id="surprise">
-    <p>YOUR CHRISTMAS SURPRISE</p>
-    <h1>You've won!</h1>
+    <p>LA TUA SORPRESA DI NATALE</p>
+    <h1>🎉 Complimenti!</h1>
     <div class="amount" id="prize"></div>
-    <p>A special gift, just for you!</p>
-    <p>Contact Kang to activate your bonus.</p>
-    <p>Merry Christmas ❤️</p>
+    <p>Un bonus natalizio esclusivo, pensato proprio per te!</p>
+    <p>Contatta il nostro team per attivare il tuo regalo.</p>
+    <p>Buon Natale da Kang! ❤️</p>
   </div>
 </main>
 
 <script>
 const gifts = {
-  "VIP001": "€10",
-  "VIP002": "€20",
-  "VIP003": "€30",
-  "VIP004": "€20",
-  "VIP005": "€10",
-  "VIP006": "€30",
-  "VIP007": "€20",
-  "VIP008": "€10",
-  "VIP009": "€30",
-  "VIP010": "€20"
+  "VIP001": "20 €",
+  "VIP002": "20 €",
+  "VIP003": "30 €",
+  "VIP004": "20 €",
+  "VIP005": "10 €",
+  "VIP006": "30 €",
+  "VIP007": "20 €",
+  "VIP008": "10 €",
+  "VIP009": "30 €",
+  "VIP010": "20 €"
 };
 
 const code = new URLSearchParams(location.search).get("code");
 
 function unwrap() {
   if (!gifts[code]) {
-    alert("Sorry, this gift link is not valid.");
+    alert("Questo link regalo non è valido.");
     return;
   }
   document.getElementById("welcome").style.display = "none";
